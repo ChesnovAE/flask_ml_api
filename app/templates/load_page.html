@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block body %}
+    <div class="container">
+        <div class="custom-file">
+            <form action="" method="post" enctype="multipart/form-data">
+                <input type="file" name="file" class="custom-file-input" lang="ru" id="LoadFile">
+                <label class="custom-file-label" for="LoadFile">Выберите файл</label>
+                <p>&nbsp;</p>
+                <input type="submit" value="Upload" class="btn btn-outline-primary">
+            </form>
+        </div>
+    </div>
+{% endblock %}
