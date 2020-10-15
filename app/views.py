@@ -17,6 +17,7 @@ def _allowed_file(filename):
 def index():
     return render_template('index.html')
 
+
 @app.route('/load', methods=['GET', 'POST'])
 def load():
     if request.method == 'GET':
