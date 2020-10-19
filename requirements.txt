@@ -13,3 +13,6 @@ pytz
 flask-babel
 flup
 werkzeug
+scikit-learn
+pandas
+numpy
