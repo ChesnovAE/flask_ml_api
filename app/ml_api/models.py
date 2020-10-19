@@ -8,15 +8,18 @@ from typing import Union, Dict
 class BaseModel(ABC):
     def __init__(self, params, model=None):
         self.params = params
-        self.model = model(self.params['model_params'])
+        if self.params:
+            self.model = model(**self.params['model_params'])
+        else:
+            self.model = model()
     
     @abstractclassmethod
     def fit(self, xtrain, ytrain):
-        pass
+        raise NotImplementedError
     
     @abstractclassmethod
     def predict(self, xtest):
-        pass
+        raise NotImplementedError
 
 
 class LogisticModel(BaseModel):

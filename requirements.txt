@@ -16,3 +16,5 @@ werkzeug
 scikit-learn
 pandas
 numpy
+pytest
+pytest-cov
