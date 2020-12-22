@@ -4,11 +4,28 @@
     <div class="container">
         <div class="custom-file">
             <form action="" method="post" enctype="multipart/form-data">
-                <input type="file" name="file" class="custom-file-input" lang="ru" id="LoadFile">
-                <label class="custom-file-label" for="LoadFile">Выберите файл</label>
+                <div class="form-group">
+                    <label for="LoadFileImage">Выберите картинку для применения стиля</label>
+                    <input type="file" name="image_content" class="form-control-file" lang="ru" id="LoadFileImage">
+                </div>
+                <p>&nbsp;</p>
+                <div class="form-group">
+                    <label for="LoadFileContent">Выберите стиль</label>
+                    <input type="file" name="style_content" class="form-control-file" lang="ru" id="LoadFileContent">
+                </div>
                 <p>&nbsp;</p>
                 <input type="submit" value="Upload" class="btn btn-outline-primary">
             </form>
         </div>
     </div>
+    <!-- {% if content_image %} -->
+	<div>
+		<img src="/ml_api/app/static/uploads/YellowLabradorLooking_new.jpg">
+	</div>
+    <!-- {% endif %} -->
+    <!-- {% if style_image %} -->
+	<div>
+		<img src="/ml_api/app/static/uploads/630798.730xp.jpg">
+	</div>
+    <!-- {% endif %} -->
 {% endblock %}

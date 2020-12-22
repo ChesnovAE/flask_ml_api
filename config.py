@@ -7,8 +7,11 @@ class BaseConfig:
     CSRF_ENABLE = True
     DEBUG = True
     SECRET_KEY = os.environ.get('SECRET_KEY') or 'you-will-never-guess'
-    UPLOAD_FOLDER = os.path.join(base_dir, 'loads')
+    UPLOAD_FOLDER = os.path.join(base_dir, 'app/static/uploads')
+    # STATICFILES_DIRS = (os.path.join(base_dir, "static"))
 
 
 class ProdConfig(BaseConfig):
     DEBUG = False
+
+print(BaseConfig.base_dir)
