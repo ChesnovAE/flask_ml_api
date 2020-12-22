@@ -18,3 +18,5 @@ pandas
 numpy
 pytest
 pytest-cov
+tensorflow
+tensorflow-hub
