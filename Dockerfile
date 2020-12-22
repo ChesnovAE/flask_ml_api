@@ -1,8 +1,8 @@
 FROM python:3.8-alpine
 
 
-COPY ./ /ml_api/
-WORKDIR /ml_api/
+COPY ./ /web/
+WORKDIR /web/
 
 RUN pip3 install -r requirements.txt
 

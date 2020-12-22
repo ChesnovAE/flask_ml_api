@@ -13,3 +13,10 @@ pytz
 flask-babel
 flup
 werkzeug
+scikit-learn
+pandas
+numpy
+pytest
+pytest-cov
+tensorflow
+tensorflow-hub
