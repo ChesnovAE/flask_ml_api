@@ -2,30 +2,33 @@
 
 {% block body %}
     <div class="container">
-        <div class="custom-file">
-            <form action="" method="post" enctype="multipart/form-data">
-                <div class="form-group">
-                    <label for="LoadFileImage">Выберите картинку для применения стиля</label>
-                    <input type="file" name="image_content" class="form-control-file" lang="ru" id="LoadFileImage">
-                </div>
-                <p>&nbsp;</p>
-                <div class="form-group">
-                    <label for="LoadFileContent">Выберите стиль</label>
-                    <input type="file" name="style_content" class="form-control-file" lang="ru" id="LoadFileContent">
-                </div>
-                <p>&nbsp;</p>
-                <input type="submit" value="Upload" class="btn btn-outline-primary">
-            </form>
+        <p>
+            <div class="custom-file">
+                <form action="" method="post" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="LoadFileImage">Выберите картинку для применения стиля</label>
+                        <input type="file" name="image_content" class="form-control-file" lang="ru" id="LoadFileImage">
+                    </div>
+                    <p>&nbsp;</p>
+                    <div class="form-group">
+                        <label for="LoadFileContent">Выберите стиль</label>
+                        <input type="file" name="style_content" class="form-control-file" lang="ru" id="LoadFileContent">
+                    </div>
+                    <p>&nbsp;</p>
+                    <input type="submit" value="Upload" class="btn btn-outline-primary">
+                </form>
+            </div>
+        </p>
+        {% if content_image %}
+        <div class="container">
+            <img src="{{ content_image }}" class="img-thumbnail">
         </div>
+        {% endif %}
+
+        {% if style_image %}
+        <div class="container">
+            <img src="{{ style_image }}" class="img-thumbnail">
+        </div>
+        {% endif %}
     </div>
-    <!-- {% if content_image %} -->
-	<div>
-		<img src="/ml_api/app/static/uploads/YellowLabradorLooking_new.jpg">
-	</div>
-    <!-- {% endif %} -->
-    <!-- {% if style_image %} -->
-	<div>
-		<img src="/ml_api/app/static/uploads/630798.730xp.jpg">
-	</div>
-    <!-- {% endif %} -->
 {% endblock %}

@@ -12,10 +12,8 @@ import PIL.Image
 class BaseModel(ABC):
     def __init__(self, params, model=None):
         self.params = params
-        if self.params:
+        if params and model:
             self.model = model(**self.params['model_params'])
-        else:
-            self.model = model()
     
     @abstractclassmethod
     def fit(self, xtrain, ytrain):
@@ -50,6 +48,9 @@ class StyleTransferModel(BaseModel):
         if self.params['load_pretrained']:
             self._load_pretrained_model()
     
+    def fit(self, xtrain, ytrain):
+        pass
+
     def _tensor_to_image(self, tensor):
         tensor = tensor * 255
         tensor = np.array(tensor, dtype=np.uint8)
@@ -78,8 +79,8 @@ class StyleTransferModel(BaseModel):
         self.model = hub.load('https://tfhub.dev/google/magenta/arbitrary-image-stylization-v1-256/2')
     
     def predict(self, content_image_pth: str, style_image_pth: str, save_path: str) -> None:
-        content_image = load_img(content_image_pth)
-        style_image = load_img(style_image_pth)
-        stylized_image = hub_model(tf.constant(content_image), tf.constant(style_image))[0]
-        stylized_image = PIL.Image.fromarray(style_image)
+        content_image = self._load_img(content_image_pth)
+        style_image = self._load_img(style_image_pth)
+        stylized_image = self.model(tf.constant(content_image), tf.constant(style_image))[0]
+        stylized_image = self._tensor_to_image(stylized_image)
         stylized_image.save(save_path)
