@@ -10,6 +10,12 @@ UPLOAD_FOLDER_PATH = "app/static/images/upload_img/"
 STYLIZED_IMG_FOLDER_PATH = "app/static/images/stylized_img/"
 NAME_STYLIZED_IMG = "stylized.png"
 
+if not os.path.exists(UPLOAD_FOLDER_PATH):
+    os.makedirs(UPLOAD_FOLDER_PATH)
+
+if not os.path.exists(STYLIZED_IMG_FOLDER_PATH):
+    os.makedirs(STYLIZED_IMG_FOLDER_PATH)
+
 
 def _allowed_file(filename):
     return '.' in filename and \
