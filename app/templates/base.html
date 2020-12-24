@@ -2,7 +2,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/image.css') }}">
     <title>Document</title>
 </head>
 <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
@@ -14,5 +16,25 @@
 </div>
 <body>
     {% block body %}{% endblock %}
+    <script>
+    function readURL(input, img) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $(img).attr('src', e.target.result);
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    $("#imgInpOne").change(function(){
+        readURL(this, "#img_content");
+    });
+    $("#imgInpTwo").change(function(){
+        readURL(this, "#img_style");
+    });
+    </script>
 </body>
 </html>
+

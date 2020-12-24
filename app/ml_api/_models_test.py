@@ -10,8 +10,7 @@ class TestLogisticModel(unittest.TestCase):
         x = []
         self.assertRaises(NotImplementedError, BaseModel.fit, x, x)
         self.assertRaises(NotImplementedError, BaseModel.predict, x)
-    
-    
+
     def test_init_function_with_params(self):
         params = {
             'some_param': 12,

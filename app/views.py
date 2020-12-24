@@ -6,6 +6,9 @@ from app.ml_api import StyleTransferModel
 
 
 ALLOWED_EXTENSIONS = set(['jpg', 'jpeg', 'png'])
+UPLOAD_FOLDER_PATH = "app/static/images/upload_img/"
+STYLIZED_IMG_FOLDER_PATH = "app/static/images/stylized_img/"
+NAME_STYLIZED_IMG = "stylized.png"
 
 
 def _allowed_file(filename):
@@ -33,24 +36,21 @@ def load_display():
     if condition:
         content_filename = secure_filename(content_file.filename)
         style_filename = secure_filename(style_file.filename)
-        content_file_pth = os.path.join(app.config['ABS_UPLOAD_FOLDER'], content_filename)
+        content_file_pth = UPLOAD_FOLDER_PATH + content_filename
         content_file.save(content_file_pth)
-        style_file_pth = os.path.join(app.config['ABS_UPLOAD_FOLDER'], style_filename)
+        style_file_pth = UPLOAD_FOLDER_PATH + style_filename
         style_file.save(style_file_pth)
     
     model = StyleTransferModel({'load_pretrained': True})
     model.predict(
         content_file_pth,
         style_file_pth,
-        os.path.join(app.config['ABS_UPLOAD_FOLDER'], 'stylized.png')
+        STYLIZED_IMG_FOLDER_PATH + NAME_STYLIZED_IMG
     )
     return render_template(
         'load_page.html',
-        content_image=os.path.join(app.config['REL_UPLOAD_FOLDER'], 'stylized.png')
+        content_image=content_filename,
+        style_image=style_filename,
+        stylized_image=NAME_STYLIZED_IMG
     )
 
-
-# @app.route('/display/<filename>')
-# def display_image(filename):
-#     print(url_for('static', filename='uploads' + filename))
-#     # return redirect(url_for('static', filename='uploads' + filename), code=301)

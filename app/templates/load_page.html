@@ -7,28 +7,36 @@
                 <form action="" method="post" enctype="multipart/form-data">
                     <div class="form-group">
                         <label for="LoadFileImage">Выберите картинку для применения стиля</label>
-                        <input type="file" name="image_content" class="form-control-file" lang="ru" id="LoadFileImage">
+                        <input id="imgInpOne" type="file" name="image_content" class="form-control-file" lang="ru" id="LoadFileImage">
+
+                        {% if content_image %}
+                            <img src="static/images/upload_img/{{ content_image }}">
+                        {% else %}
+                            <img id="img_content" src="{{ content_image }}">
+                        {% endif %}
                     </div>
-                    <p>&nbsp;</p>
+
                     <div class="form-group">
                         <label for="LoadFileContent">Выберите стиль</label>
-                        <input type="file" name="style_content" class="form-control-file" lang="ru" id="LoadFileContent">
+                        <input id="imgInpTwo" type="file" name="style_content" class="form-control-file" lang="ru" id="LoadFileContent">
+                        {% if style_image %}
+                            <img src="static/images/upload_img/{{ style_image }}">
+                        {% else %}
+                            <img id="img_style" src="{{ style_image }}">
+                        {% endif %}
                     </div>
-                    <p>&nbsp;</p>
-                    <input type="submit" value="Upload" class="btn btn-outline-primary">
+
+                    <div class="form-group">
+                    <input type="submit" value="Upload">
+
+                    {% if stylized_image %}
+                        <img src="static/images/stylized_img/{{ stylized_image }}">
+                    {% endif %}
+                    </div>
+
                 </form>
             </div>
         </p>
-        {% if content_image %}
-        <div class="container">
-            <img src="{{ content_image }}" class="img-thumbnail">
-        </div>
-        {% endif %}
 
-        {% if style_image %}
-        <div class="container">
-            <img src="{{ style_image }}" class="img-thumbnail">
-        </div>
-        {% endif %}
     </div>
 {% endblock %}
