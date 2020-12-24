@@ -28,6 +28,12 @@
             reader.readAsDataURL(input.files[0]);
         }
     }
+    $("#imgInpTwo").change(function(){
+        readURL(this, "#img_style_upload");
+    });
+    $("#imgInpOne").change(function(){
+        readURL(this, "#img_content_upload");
+    });
     $("#imgInpOne").change(function(){
         readURL(this, "#img_content");
     });

@@ -46,6 +46,8 @@ def load_display():
         content_file.save(content_file_pth)
         style_file_pth = UPLOAD_FOLDER_PATH + style_filename
         style_file.save(style_file_pth)
+    else:
+        return redirect("load")
     
     model = StyleTransferModel({'load_pretrained': True})
     model.predict(
