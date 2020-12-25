@@ -7,7 +7,7 @@ from app.ml_api import StyleTransferModel
 
 ALLOWED_EXTENSIONS = set(['jpg', 'jpeg', 'png'])
 NAME_STYLIZED_IMG = "stylized.png"
-EXAMPLE_CONTENT = "../example_content_1.jpg"
+EXAMPLE_CONTENT = "../examples_img/example_content_1.jpg"
 EXAMPLE_STYLE = "../examples_img/example_style_1.jpg"
 EXAMPLE_STYLIZED = "../examples_img/example_stylized_1.png"
 
