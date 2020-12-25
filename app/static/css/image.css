@@ -1,0 +1,57 @@
+.some-page-wrapper {
+  margin: 30px;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  padding:10
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 100%;
+  height: 500px;
+  flex: 1;
+/*   background-color: blue */
+}
+
+.input-column {
+/*   background-color: orange; */
+  height: 400px;
+  text-align: center;
+}
+
+.input-column img {
+    width: auto;
+    height: 100%;
+}
+
+
+.double-column {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 100%;
+  width: 800px;
+  height: 400px;
+  flex: 2;
+/*   background-color: green */
+}
+
+.output-column {
+/*   background-color: green; */
+  height: 400px;
+  text-align: center;
+}
+
+.output-column img {
+    width: auto;
+    height: 100%;
+}
+
+.button {
+    margin: 10;
+}
