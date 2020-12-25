@@ -8,6 +8,12 @@ from app.ml_api import StyleTransferModel
 ALLOWED_EXTENSIONS = set(['jpg', 'jpeg', 'png'])
 NAME_STYLIZED_IMG = "stylized.png"
 
+if not os.path.exists(app.config['ABS_UPLOAD_FOLDER']):
+	os.makedirs(app.config['ABS_UPLOAD_FOLDER'])
+
+if not os.path.exists(app.config['ABS_STYLIZED_FOLDER']):
+	os.makedirs(app.config['ABS_STYLIZED_FOLDER'])
+
 
 def _allowed_file(filename):
     return '.' in filename and \
