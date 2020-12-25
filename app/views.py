@@ -7,12 +7,16 @@ from app.ml_api import StyleTransferModel
 
 ALLOWED_EXTENSIONS = set(['jpg', 'jpeg', 'png'])
 NAME_STYLIZED_IMG = "stylized.png"
+EXAMPLE_CONTENT = "../example_content_1.jpg"
+EXAMPLE_STYLE = "../examples_img/example_style_1.jpg"
+EXAMPLE_STYLIZED = "../examples_img/example_stylized_1.png"
 
 if not os.path.exists(app.config['ABS_UPLOAD_FOLDER']):
-	os.makedirs(app.config['ABS_UPLOAD_FOLDER'])
+    os.makedirs(app.config['ABS_UPLOAD_FOLDER'])
+
 
 if not os.path.exists(app.config['ABS_STYLIZED_FOLDER']):
-	os.makedirs(app.config['ABS_STYLIZED_FOLDER'])
+    os.makedirs(app.config['ABS_STYLIZED_FOLDER'])
 
 
 def _allowed_file(filename):
@@ -28,7 +32,12 @@ def index():
 
 @app.route('/load', methods=['GET'])
 def load():
-    return render_template('load_page.html')
+    return render_template(
+        'load_page.html',
+        content_image=EXAMPLE_CONTENT,
+        style_image=EXAMPLE_STYLE,
+        stylized_image=EXAMPLE_STYLIZED
+    )
 
 
 @app.route('/load', methods=['POST'])

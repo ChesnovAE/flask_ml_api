@@ -11,6 +11,8 @@ class BaseConfig:
     ABS_STYLIZED_FOLDER = os.path.join(base_dir, 'app/static/images/stylized_img/')
     REL_STYLIZED_FOLDER = 'static/images/stylized_img/'
     SEND_FILE_MAX_AGE_DEFAULT = 0
+    ABS_EXAMPLES_FOLDER = os.path.join(base_dir, 'app/static/images/examples_img/')
+    REL_EXAMPLES_FOLDER = 'static/images/examples_img/'
 
 
 class ProdConfig(BaseConfig):
