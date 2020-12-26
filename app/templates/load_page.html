@@ -1,34 +1,95 @@
 {% extends 'base.html' %}
 
 {% block body %}
-    <div class="container">
+    <div>
         <p>
-            <div class="custom-file">
+            <div>
                 <form action="" method="post" enctype="multipart/form-data">
-                    <div class="form-group">
-                        <label for="LoadFileImage">Выберите картинку для применения стиля</label>
-                        <input type="file" name="image_content" class="form-control-file" lang="ru" id="LoadFileImage">
+
+                    <div class='some-page-wrapper'>
+                      <div class='row'>
+                        <div class='column'>
+                            <div class="input-column">
+                                <h3>
+                                    <label class="text-style">Загрузите картинку для применения стиля</label>
+                                </h3>
+
+                                <div class="input-button">
+                                    <div class="form-group">
+
+                                        <input  id="imgInpOne" type="file" name="image_content" class="input-file" lang="ru" >
+
+                                        <label for="imgInpOne" class="btn btn-tertiary js-labelFile">
+                                            <i class="icon fa fa-check"></i>
+                                            <span class="js-fileName">Загрузить файл</span>
+                                        </label>
+
+                                        <div>
+                                            {% if content_image %}
+                                              <img id="img_content_upload" src="static/images/upload_img/{{ content_image }}" >
+                                            {% else %}
+                                              <img id="img_content" src="{{ content_image }}" >
+                                            {% endif %}
+                                        </div>
+
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+                        </div>
+                        <div class='column'>
+                            <div class="input-column">
+
+                                <h3>
+                                    <label class="text-style">Загрузите стиль</label>
+                                </h3>
+
+                                <div class="input-button">
+                                    <div class="form-group">
+
+                                        <input id="imgInpTwo" type="file" name="style_content" class="input-file" lang="ru">
+
+                                        <label for="imgInpTwo" class="btn btn-tertiary js-labelFile">
+                                            <i class="icon fa fa-check"></i>
+                                            <span class="js-fileName">Загрузить файл</span>
+                                        </label>
+
+                                        <div>
+                                        {% if style_image %}
+                                            <img id="img_style_upload" src="static/images/upload_img/{{ style_image }}">
+                                        {% else %}
+                                            <img id="img_style" src="{{ style_image }}">
+                                        {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                      </div>
+
+                      <div class='row'>
+                        <div class='double-column'>
+                          <div class='output-column'>
+                            <div class="button">
+                                <input type="submit" value="Получить результат" id="upload" class="btn btn-outline-primary">
+                            </div>
+
+                            <div>
+                            {% if stylized_image %}
+                                <img src="static/images/stylized_img/{{ stylized_image }}">
+                            {% endif %}
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
-                    <p>&nbsp;</p>
-                    <div class="form-group">
-                        <label for="LoadFileContent">Выберите стиль</label>
-                        <input type="file" name="style_content" class="form-control-file" lang="ru" id="LoadFileContent">
-                    </div>
-                    <p>&nbsp;</p>
-                    <input type="submit" value="Upload" class="btn btn-outline-primary">
+
                 </form>
             </div>
         </p>
-        {% if content_image %}
-        <div class="container">
-            <img src="{{ content_image }}" class="img-thumbnail">
-        </div>
-        {% endif %}
 
-        {% if style_image %}
-        <div class="container">
-            <img src="{{ style_image }}" class="img-thumbnail">
-        </div>
-        {% endif %}
     </div>
 {% endblock %}
