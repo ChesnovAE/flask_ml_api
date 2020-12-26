@@ -1,10 +1,10 @@
-.text-style {
+.header-text-style {
     font-family: 'Poppins', sans-serif;
     padding:15px;
 }
 
 .simple-text-style {
-    font-family: 'Poppins';
+    font-family: 'Poppins', sans-serif;
 }
 
  .text-block {
