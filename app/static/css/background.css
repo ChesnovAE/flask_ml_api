@@ -1,0 +1,10 @@
+.grad {
+    background-color: blue;
+    background-image: linear-gradient(to bottom, #ceddf5 , white);
+}
+
+.blue_header {
+    background-color: #c2d6f5;
+    background-image: linear-gradient(to bottom, #c2d6f5 , #c2d6f5);
+}
+
