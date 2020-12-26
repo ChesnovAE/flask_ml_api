@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/image.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/background.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/input_button.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/text.css') }}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital@1&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
     <title>Document</title>
@@ -83,6 +86,22 @@
             readURL(this, "#img_style");
         });
     </script>
+
+
+    <script>
+      $('.input-file').each(function() {
+        var $input = $(this),
+            $label = $input.next('.js-labelFile'),
+            labelVal = $label.html();
+
+       $input.on('change', function(element) {
+          var fileName = '';
+          if (element.target.value) fileName = element.target.value.split('\\').pop();
+          fileName ? $label.addClass('has-file').find('.js-fileName').html(fileName) : $label.removeClass('has-file').html(labelVal);
+       });
+      });
+    </script>
+
 </body>
 </html>
 
