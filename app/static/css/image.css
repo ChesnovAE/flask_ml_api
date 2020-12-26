@@ -117,3 +117,12 @@
 .loaded .preloader {
   display: none;
 }
+
+.logo-img {
+    width: auto;
+    height: 80px;
+}
+
+.custom-padding {
+    padding:0!important;
+}
