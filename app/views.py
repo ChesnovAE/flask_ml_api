@@ -5,7 +5,7 @@ from werkzeug.utils import secure_filename
 from app.ml_api import StyleTransferModel
 
 
-ALLOWED_EXTENSIONS = set(['jpg', 'jpeg', 'png'])
+ALLOWED_EXTENSIONS = set(['jpg', 'jpeg', 'png', 'JPG', 'JPEG', 'PNG'])
 NAME_STYLIZED_IMG = "stylized.png"
 EXAMPLE_CONTENT = "../examples_img/example_content_1.jpg"
 EXAMPLE_STYLE = "../examples_img/example_style_1.jpg"
