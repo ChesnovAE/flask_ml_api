@@ -7,4 +7,4 @@ RUN pip3 install -r requirements.txt
 COPY ./ /ml_api/
 WORKDIR /ml_api/
 
-CMD [ "python3", "run.py" ]
+CMD [ "sh", "gunicorn_run.sh" ]

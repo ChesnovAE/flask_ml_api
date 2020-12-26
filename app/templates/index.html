@@ -1,5 +1,35 @@
 {% extends "base.html" %}
 
 {% block body %}
-<h1>Заглушка</h1>
+<div class="content">
+    <h1 class="header-text-style">Demo: Style Transfer with GAN</h1>
+    <br />
+    <br />
+    <div>
+        <h2 class="header-text-style">Introduction</h2>
+        <div class="text-block simple-text-style">
+            Передача стиля изображения - это задача, направленная на отображение содержимого одного
+            изображение со стилем другого, что важно и интересно как по практическим, так и по научным причинам.<br />
+            Методы передачи стиля могут широко использоваться в приложениях обработки изображений, таких как
+            фильтры для мобильных камер и создание художественного образа. <br />
+            Так же это может стать довольно увлекательным развлечением на некоторое время.
+        </div>
+
+        <h2 class="header-text-style">Quick start</h2>
+        <div class="text-block simple-text-style">
+            1. Пожалуйста, для перехода на страницу с demo, нажмите на кнопку <a href="/load">"load"</a> с правой стороны шапки сайта или нажмите на ссылку. <br />
+            2. Загрузите изображение, к которому хотите применить стиль в поле слева, и сам стиль в поле справа.
+            Доступные форматы изображениий: .png, .jpg, .jpeg. <br />
+            Можете выбрать изображения из подготовленных нами: <a href="https://drive.google.com/drive/folders/1F73iU4Csx8UTp6Y8FxLTIvoDzHvggxD8?usp=sharing">Коллекция изображений</a> <br />
+            3. Нажмите кнопку "Получить результат" и ожидайте. Обработка может занять некоторое время. <br /><br />
+        </div>
+
+        <h2 class="header-text-style">Code</h2>
+        <div class="text-block simple-text-style">
+            Код проета можно найти в репозитории по <a href="https://github.com/ChesnovAE/flask_ml_api">ссылке на github</a>
+        </div>
+
+    </div>
+</div>
 {% endblock %}
+

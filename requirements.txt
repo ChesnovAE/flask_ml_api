@@ -12,6 +12,7 @@ flask-wtf
 pytz
 flask-babel
 flup
+gunicorn
 werkzeug
 scikit-learn
 pandas

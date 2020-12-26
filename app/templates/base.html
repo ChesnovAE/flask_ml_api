@@ -16,7 +16,6 @@
 </head>
 
 <div class="blue_header d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow custom-padding">
-<!--    <h5 class="my-0 mr-md-auto font-weight-normal">Ripper</h5>-->
     <a href="/" class="my-0 mr-md-auto font-weight-normal">
         <img src="static/images/logo/logo_img.png" class="logo-img">
     </a>
@@ -105,6 +104,12 @@
        });
       });
     </script>
+
+{% block footer %}
+    <div class="text-style">
+        Made by: <a href="https://github.com/ChesnovAE">Anton Chesnov</a>, <a>Ilya Chumak</a>, <a href="https://github.com/rchermanteev">Ramil Chermanteev</a>.
+    </div>
+{% endblock footer %}
 
 </body>
 </html>
