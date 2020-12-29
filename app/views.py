@@ -3,6 +3,7 @@ from app import app
 from flask import render_template, redirect, url_for, request
 from werkzeug.utils import secure_filename
 from app.ml_api import StyleTransferModel
+from app.utils import ManagerModel
 
 
 ALLOWED_EXTENSIONS = set(['jpg', 'jpeg', 'png', 'JPG', 'JPEG', 'PNG'])
@@ -40,6 +41,9 @@ def load():
     )
 
 
+MMODEL = ManagerModel(StyleTransferModel({'load_pretrained': True}))
+
+
 @app.route('/load', methods=['POST'])
 def load_display():
     content_file = request.files['image_content']
@@ -60,7 +64,7 @@ def load_display():
     else:
         return redirect("load")
 
-    model = StyleTransferModel({'load_pretrained': True})
+    model = MMODEL.get_model_instance()
     model.predict(
         content_file_pth,
         style_file_pth,
